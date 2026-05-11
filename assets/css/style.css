@@ -686,6 +686,54 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: 700;
 }
 
+/* 가계부 CTA */
+.cta-divider-wrap {
+  margin-top: 16px;
+}
+.cta-dotted-divider {
+  border-top: 1.5px dashed var(--border);
+  margin-bottom: 14px;
+}
+.cta-hook {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-sub);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.cta-btn-sm {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.5;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text-main);
+  transition: border-color 0.15s, background 0.15s;
+}
+.cta-btn-sm:hover {
+  border-color: var(--brand-coral);
+  background: #fff;
+}
+.btn-sm-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-sub);
+  margin-bottom: 2px;
+}
+.btn-sm-main {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
 /* 결혼 이미지 */
 .wedding-img {
   width: 100%;
