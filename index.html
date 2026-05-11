@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신혼부부 자산 레벨 진단 — 해피씨쀼</title>
+  <meta name="description" content="우리 부부 자산 레벨은 몇 단계일까요? 20문항으로 현재 위치를 진단하고 맞춤 액션플랜을 받아요." />
+  <meta property="og:title" content="신혼부부 자산 레벨 진단 — 해피씨쀼" />
+  <meta property="og:description" content="20문항 · 5분 · 무료 — 우리 부부 순자산 레벨 진단" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- 공통 헤더 -->
+<header class="site-header">
+  <div class="header-inner">
+    <img src="assets/images/99_logo.png" alt="해피씨쀼 로고" class="logo-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+    <span class="logo-text" style="display:none">해피씨쀼</span>
+  </div>
+</header>
+
+
+<!-- ══ SCREEN 1: 인트로 ══════════════════════════ -->
+<div id="screen-intro" class="screen">
+  <div class="page-wrap">
+
+    <div class="exam-card">
+      <div class="exam-header">
+        <div>
+          <div class="exam-title-main">해피씨쀼</div>
+          <div class="exam-title-sub">신혼부부 자산 레벨 진단</div>
+        </div>
+        <div class="stamp">진단지</div>
+      </div>
+      <div class="exam-meta">
+        <div class="exam-meta-cell">시험명</div>
+        <div class="exam-meta-cell">자산 레벨 진단</div>
+        <div class="exam-meta-cell">문항 수</div>
+        <div class="exam-meta-cell">20개</div>
+        <div class="exam-meta-cell">주관</div>
+        <div class="exam-meta-cell">해피씨쀼</div>
+        <div class="exam-meta-cell">유형</div>
+        <div class="exam-meta-cell">객관식</div>
+      </div>
+    </div>
+
+    <div class="teaser-wrap">
+      <div class="teaser-image">
+        <img src="assets/images/00_5actionplan.png" alt="5단계 액션플랜"
+             onerror="this.closest('.teaser-image').style.minHeight='160px';this.closest('.teaser-image').style.background='#EDE8E2';this.style.display='none';" />
+      </div>
+      <p class="teaser-label">✦ 진단을 마치면 확인할 수 있어요!</p>
+    </div>
+
+    <div class="start-section">
+      <button class="start-btn" id="startBtn">진단 시작하기 →</button>
+    </div>
+
+    <div class="intro-footer">
+      <span>✓ 무료</span>
+      <span class="dot"></span>
+      <span>✓ 20문항</span>
+      <span class="dot"></span>
+      <span>✓ 약 5분</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ SCREEN 2: 퀴즈 ══════════════════════════ -->
+<div id="screen-quiz" class="screen">
+
+  <div class="quiz-top">
+    <div class="quiz-top-row">
+      <span class="area-badge" id="areaBadge">영역명</span>
+      <span class="q-num" id="qNum">문항 1/20</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-track" id="progressTrack">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+        <img src="assets/images/99_husband.png" alt="얌돌이"
+             class="husband-char" id="husbandChar"
+             onerror="this.style.display='none';document.getElementById('husbandFallback').style.display='block'" />
+        <span class="husband-fallback" id="husbandFallback" style="display:none">🐰</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-body">
+    <div class="question-text" id="questionText"></div>
+    <div class="options-container" id="optionsContainer"></div>
+  </div>
+
+  <div class="quiz-bottom">
+    <button class="nav-btn" id="prevBtn">← 이전</button>
+    <button class="nav-btn primary" id="nextBtn" disabled>다음 →</button>
+  </div>
+
+</div>
+
+
+<!-- ══ SCREEN 3: 로딩 ══════════════════════════ -->
+<div id="screen-loading" class="screen" style="display:none;">
+  <p class="loading-title">채점 중이에요...</p>
+  <img src="assets/images/99_wife.png" alt="해피씨" class="loading-char"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+  <span class="loading-char-fallback" style="display:none">🐰</span>
+  <div class="loading-bar-track">
+    <div class="loading-bar-fill" id="loadingFill"></div>
+  </div>
+  <p class="loading-desc">우리 부부는 지금 어디?<br>레벨을 분석하고 있어요</p>
+</div>
+
+
+<!-- ══ SCREEN 4: 결과 ══════════════════════════ -->
+<div id="screen-result" class="screen" style="display:none;">
+  <div class="page-wrap">
+
+    <!-- 이미지 저장 대상 래퍼 -->
+    <div id="resultCard">
+
+      <div class="exam-card reveal">
+        <div class="exam-header">
+          <div>
+            <div class="exam-title-main">채점 결과표</div>
+            <div class="exam-title-sub">신혼부부 자산 레벨 진단 결과</div>
+          </div>
+          <div class="stamp">채점완료</div>
+        </div>
+        <div class="exam-meta">
+          <div class="exam-meta-cell">시험명</div>
+          <div class="exam-meta-cell">자산 레벨 진단</div>
+          <div class="exam-meta-cell">판정</div>
+          <div class="exam-meta-cell" id="resultTableLv">Lv—</div>
+        </div>
+      </div>
+
+      <!-- 레벨 대표 이미지 -->
+      <div style="margin: 0 16px; border-radius: 12px; overflow:hidden;" class="reveal">
+        <img id="lvImage" src="" alt="레벨 이미지" class="result-lv-image" />
+        <div class="result-lv-image-fallback" id="lvImageFallback" style="display:none">
+          <span id="lvImageFallbackText" style="font-size:40px;font-weight:900;color:#fff;"></span>
+        </div>
+      </div>
+
+      <!-- 레벨 진단 결과 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>레벨 진단 결과</span></div>
+        <div class="lv-title-wrap reveal" id="lvTitleWrap">
+          <div class="lv-title" id="lvTitle"></div>
+          <div class="lv-oneliner" id="lvOneliner"></div>
+          <div class="lv-range" id="lvRange"></div>
+        </div>
+        <div class="lv-quote reveal" id="lvQuote"></div>
+      </div>
+
+      <!-- 7개 영역 분석 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>7개 영역 분석</span></div>
+        <div class="chart-wrap chart-reveal">
+          <div id="radarChart"></div>
+        </div>
+        <!-- 3줄 코멘트 -->
+        <div id="chartComments" class="reveal"></div>
+      </div>
+
+      <!-- 이 레벨 최대 함정 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>이 레벨 최대 함정</span></div>
+        <div class="trap-box reveal">
+          <div class="trap-label">⚠ 주의하세요</div>
+          <div class="trap-text" id="trapText"></div>
+        </div>
+      </div>
+
+      <!-- 지금 당장 해야 할 것 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>지금 당장 해야 할 것</span></div>
+        <div id="actionList"></div>
+      </div>
+
+      <!-- 약점 영역 TOP3 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>약점 영역 TOP 3</span></div>
+        <div id="barChart" class="reveal"></div>
+      </div>
+
+      <!-- 레벨업 조건 -->
+      <div class="result-section">
+        <div class="section-divider reveal"><span>레벨업 조건</span></div>
+        <div class="levelup-box reveal">
+          <div class="levelup-badge">LEVEL UP</div>
+          <div class="levelup-text" id="levelupCondition"></div>
+        </div>
+      </div>
+
+    </div><!-- /resultCard -->
+
+    <!-- CTA (이미지 저장 범위 밖) -->
+    <div class="cta-section reveal">
+      <div class="section-divider"><span>다음 단계</span></div>
+
+      <div class="cta-char-wrap">
+        <img src="assets/images/99_char.jpg" alt="캐릭터" class="cta-char"
+             onerror="this.style.display='none'" />
+      </div>
+
+      <div class="cta-box">
+        <div class="cta-title">혼자 돈관리 시작하기 막막한 신혼부부라면?</div>
+        <div class="cta-desc">해피씨쀼가 하나씩 도와줄게요.</div>
+
+        <!-- 전 레벨 공통 -->
+        <a href="https://exciting-bull-fff.notion.site/1on1coach?source=copy_link"
+           target="_blank" class="cta-btn primary">
+          <span class="btn-sub">돈관리·투자·내집마련 고민을 1:1로 해결해요!</span>
+          <span class="btn-main">1:1 진단 코칭 신청하기 →</span>
+        </a>
+
+        <!-- Lv1~2 -->
+        <div id="ctaStudy">
+          <a href="https://open.kakao.com/o/gDed7qci"
+             target="_blank" class="cta-btn secondary">
+            <span class="btn-sub">신혼부부만을 위한 재테크 커뮤니티</span>
+            <span class="btn-main">쀼머니스터디클럽 대기방 입장하기 →</span>
+          </a>
+        </div>
+
+        <!-- Lv3~5 -->
+        <div id="ctaMaster" style="display:none">
+          <a href="https://cafe.naver.com/happybox55/2200?tc=shared_link"
+             target="_blank" class="cta-btn secondary">
+            <span class="btn-sub">신혼부부 재테크 마스터클래스</span>
+            <span class="btn-main">마스터클래스 자세히 보기 →</span>
+          </a>
+        </div>
+      </div>
+
+      <img src="assets/images/01_wedding_money.png" alt="" class="wedding-img"
+           onerror="this.style.display='none'" />
+    </div>
+
+    <!-- 하단 버튼 3개 -->
+    <div class="result-actions">
+      <button class="result-action-btn" id="saveBtn" onclick="saveResultImage()">이미지 저장하기</button>
+      <button class="result-action-btn" id="shareBtn">결과 공유하기</button>
+      <button class="result-action-btn restart" id="restartBtn">다시하기</button>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/chart.js"></script>
+<script src="assets/js/result.js"></script>
+<script src="assets/js/submit.js"></script>
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>
